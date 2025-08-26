@@ -19,10 +19,10 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-white/90 hover:text-white transition-colors font-medium">
+            <a href="/properties" className="text-white/90 hover:text-white transition-colors font-medium">
               Explore
             </a>
-            <a href="#" className="text-white/90 hover:text-white transition-colors font-medium">
+            <a href="/for-students" className="text-white/90 hover:text-white transition-colors font-medium">
               For Students
             </a>
             <a href="#" className="text-white/90 hover:text-white transition-colors font-medium">
@@ -64,10 +64,10 @@ const Navbar = () => {
                 
                 {/* Mobile Navigation Links */}
                 <div className="flex flex-col space-y-4">
-                  <a href="#" className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 px-4 rounded-lg hover:bg-muted">
+                  <a href="/properties" className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 px-4 rounded-lg hover:bg-muted">
                     Explore
                   </a>
-                  <a href="#" className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 px-4 rounded-lg hover:bg-muted">
+                  <a href="/for-students" className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 px-4 rounded-lg hover:bg-muted">
                     For Students
                   </a>
                   <a href="#" className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 px-4 rounded-lg hover:bg-muted">

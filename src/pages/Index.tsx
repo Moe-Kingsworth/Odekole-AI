@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import PropertyCard from '@/components/PropertyCard';
 import PropertyFilters from '@/components/PropertyFilters';
+import BottomNavigation from '@/components/BottomNavigation';
 import { Button } from '@/components/ui/button';
 import { Filter, Grid, List, Brain } from 'lucide-react';
 import property1 from '@/assets/property-1.jpg';
@@ -90,7 +91,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20">
       {/* Navbar */}
       <Navbar />
       
@@ -194,7 +195,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-2xl font-bold mb-4">
-                NaijaDigs<span className="text-accent">AI</span>
+                Odekole<span className="text-accent">AI</span>
               </h3>
               <p className="opacity-90">
                 Smart student housing for Nigeria's future leaders. Find your perfect accommodation with AI-powered recommendations.
@@ -233,10 +234,12 @@ const Index = () => {
           </div>
           
           <div className="border-t border-white/20 mt-8 pt-8 text-center opacity-90">
-            <p>&copy; 2024 NaijaDigsAI. Made with ❤️ for Nigerian students.</p>
+            <p>&copy; 2024 OdekoleAI. Made with ❤️ for Nigerian students.</p>
           </div>
         </div>
       </footer>
+      
+      <BottomNavigation />
     </div>
   );
 };
