@@ -23,7 +23,7 @@ const Hero = () => {
           {/* Main Heading */}
           <div className="mb-6">
             <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
-              <span className="block">NaijaDigs</span>
+              <span className="block">Odekole</span>
               <span className="text-accent font-normal text-4xl md:text-5xl flex items-center justify-center gap-3">
                 <Brain className="w-12 h-12" />
                 AI
