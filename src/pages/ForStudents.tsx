@@ -1,268 +1,119 @@
-import React from 'react';
 import Navbar from '@/components/Navbar';
+import MarqueeBand from '@/components/MarqueeBand';
+import FeaturesBento from '@/components/FeaturesBento';
+import PropertyGrid from '@/components/PropertyGrid';
+import CityChips from '@/components/CityChips';
+import Footer from '@/components/Footer';
 import BottomNavigation from '@/components/BottomNavigation';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { 
-  GraduationCap, 
-  Brain, 
-  Users, 
-  MapPin, 
-  Clock, 
-  BookOpen, 
-  Shield, 
-  Calculator,
-  Heart,
-  MessageCircle,
-  CheckCircle,
-  ArrowRight,
-  Star,
-  Target
-} from 'lucide-react';
+import Reveal from '@/components/Reveal';
+import { Link } from 'react-router-dom';
+
+const tips = [
+  { icon: '◷', title: 'Start early', body: 'Begin your search 3–4 months before resumption to lock the best rooms.' },
+  { icon: '◉', title: 'Visit in person', body: 'Always inspect before paying. Odekole verified badges help, but eyes on ground matter.' },
+  { icon: '₦', title: 'Budget wisely', body: 'Factor in transport, power, and food — not just rent.' },
+  { icon: '☗', title: 'Safety first', body: 'Choose blocks with good lighting, security, and student presence.' },
+];
+
+const testimonials = [
+  { name: 'Adunni O.', school: 'UNILAG', course: 'Computer Science', text: 'Odekole matched me with a studio 10 mins from campus. Signed in 2 days.' },
+  { name: 'Ibrahim M.', school: 'ABU Zaria', course: 'Engineering', text: 'Split rent with 2 coursemates, no drama. This is how it should\'ve always been.' },
+  { name: 'Chioma N.', school: 'UNN', course: 'Medicine', text: 'The budget filter saved me. Every place I toured was actually within my range.' },
+];
 
 const ForStudents = () => {
-  const features = [
-    {
-      icon: <Brain className="w-8 h-8 text-accent" />,
-      title: 'AI-Powered Matching',
-      description: 'Our advanced AI analyzes your preferences, budget, and university location to recommend perfect housing matches.',
-      benefits: ['Personalized recommendations', 'Smart filtering', 'Compatibility scoring']
-    },
-    {
-      icon: <MapPin className="w-8 h-8 text-accent" />,
-      title: 'Strategic Locations',
-      description: 'Find accommodations close to major universities across Nigeria with easy access to transport and amenities.',
-      benefits: ['Near university campuses', 'Public transport access', 'Local amenities nearby']
-    },
-    {
-      icon: <Users className="w-8 h-8 text-accent" />,
-      title: 'Roommate Matching',
-      description: 'Connect with compatible roommates based on study habits, lifestyle preferences, and shared interests.',
-      benefits: ['Compatibility assessment', 'Shared expenses', 'Built-in community']
-    },
-    {
-      icon: <Calculator className="w-8 h-8 text-accent" />,
-      title: 'Budget Planning',
-      description: 'Transparent pricing with no hidden fees. Tools to help you budget effectively for accommodation costs.',
-      benefits: ['Clear pricing', 'Budget calculators', 'Payment plans available']
-    }
-  ];
-
-  const universities = [
-    { name: 'University of Lagos (UNILAG)', location: 'Lagos', properties: 45 },
-    { name: 'University of Ibadan (UI)', location: 'Ibadan', properties: 32 },
-    { name: 'Ahmadu Bello University (ABU)', location: 'Zaria', properties: 28 },
-    { name: 'University of Nigeria, Nsukka (UNN)', location: 'Enugu', properties: 24 },
-    { name: 'Obafemi Awolowo University (OAU)', location: 'Ile-Ife', properties: 19 },
-    { name: 'Lagos State University (LASU)', location: 'Lagos', properties: 38 }
-  ];
-
-  const testimonials = [
-    {
-      name: 'Adunni Okafor',
-      university: 'UNILAG',
-      course: 'Computer Science',
-      rating: 5,
-      comment: 'Odekole AI found me the perfect studio apartment near campus. The AI recommendations were spot on!'
-    },
-    {
-      name: 'Ibrahim Mohammed',
-      university: 'ABU Zaria',
-      course: 'Engineering',
-      rating: 5,
-      comment: 'Great platform! Found affordable shared housing with compatible roommates. Highly recommended.'
-    },
-    {
-      name: 'Chioma Nwankwo',
-      university: 'UNN',
-      course: 'Medicine',
-      rating: 4,
-      comment: 'The budget planning tools helped me find accommodation within my means. Very helpful!'
-    }
-  ];
-
-  const tips = [
-    {
-      title: 'Start Early',
-      description: 'Begin your accommodation search at least 3-4 months before the academic session starts.',
-      icon: <Clock className="w-6 h-6 text-accent" />
-    },
-    {
-      title: 'Visit in Person',
-      description: 'Always visit properties in person before making any payments or commitments.',
-      icon: <MapPin className="w-6 h-6 text-accent" />
-    },
-    {
-      title: 'Budget Wisely',
-      description: 'Factor in utilities, transport costs, and other expenses beyond just rent.',
-      icon: <Calculator className="w-6 h-6 text-accent" />
-    },
-    {
-      title: 'Safety First',
-      description: 'Choose accommodations in safe neighborhoods with good security measures.',
-      icon: <Shield className="w-6 h-6 text-accent" />
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="min-h-screen bg-paper text-ink pb-20">
       <Navbar />
-      
-      {/* Hero Section */}
-      <div className="bg-gradient-hero py-20 mt-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <GraduationCap className="w-12 h-12" />
-              <h1 className="text-4xl md:text-5xl font-bold">
-                For Students
-              </h1>
+      <MarqueeBand />
+
+      {/* Hero */}
+      <section className="bg-ink text-paper py-16 md:py-20">
+        <div className="max-w-[1180px] mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 bg-ink-2 border border-paper/10 text-zest text-[13px] font-semibold px-3.5 py-1.5 rounded-full mb-5">
+              ◆ Built for Naija students
             </div>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-              Designed specifically for Nigerian students. Find affordable, safe, and comfortable accommodation near your university with AI-powered recommendations.
+            <h1 className="font-display font-black text-[36px] md:text-[52px] tracking-tight leading-[1.05]">
+              Housing that <em className="not-italic text-zest">gets</em> student life.
+            </h1>
+            <p className="text-paper/70 mt-4 text-[16px] md:text-[17px] max-w-[480px]">
+              Verified rooms near your campus, budget-friendly options, and squad-split payments. All in one app.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-                <Target className="w-5 h-5 mr-2" />
-                Find My Perfect Room
-              </Button>
-              <Button size="lg" variant="ghost" className="text-white border-white/30 hover:bg-white/20">
-                <BookOpen className="w-5 h-5 mr-2" />
-                Student Guide
-              </Button>
+            <div className="flex flex-wrap gap-3 mt-7">
+              <Link to="/properties" className="bg-zest text-zest-ink px-6 py-3.5 rounded-full font-bold text-sm">
+                Start matching →
+              </Link>
+              <a href="#tips" className="border-[1.5px] border-paper/20 text-paper px-6 py-3.5 rounded-full font-semibold text-sm">
+                Read the guide
+              </a>
             </div>
           </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { n: '12.4k+', l: 'verified rooms' },
+              { n: '₦45k', l: 'avg. rent' },
+              { n: '98%', l: 'match satisfaction' },
+              { n: '2 min', l: 'to first match' },
+            ].map((s) => (
+              <div key={s.l} className="bg-ink-2 border border-paper/10 rounded-2xl p-5">
+                <div className="font-mono font-bold text-[26px] text-zest">{s.n}</div>
+                <div className="text-xs text-paper/60 mt-1">{s.l}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Features Section */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Why Students Choose Odekole AI</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            We understand the unique challenges students face when looking for accommodation. 
-            Our platform is built to make your search easier, smarter, and more affordable.
-          </p>
-        </div>
+      <CityChips />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {features.map((feature, index) => (
-            <Card key={index} className="border-0 shadow-card hover:shadow-hover transition-all duration-300">
-              <CardHeader>
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl mb-2">{feature.title}</CardTitle>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <div className="space-y-2">
-                  {feature.benefits.map((benefit, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                      <span className="text-sm">{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+      <FeaturesBento />
+
+      {/* Tips */}
+      <section id="tips" className="max-w-[1180px] mx-auto px-5 md:px-8 py-16">
+        <Reveal>
+          <div className="text-[13px] font-bold text-coral uppercase tracking-[1px] mb-2.5">The student playbook</div>
+          <h2 className="font-display font-bold text-[28px] md:text-[32px] max-w-[520px] mb-8">
+            Rules of the digs game.
+          </h2>
+        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {tips.map((t) => (
+            <Reveal key={t.title} className="bg-white border border-ink/10 rounded-2xl p-6 flex gap-4">
+              <div className="w-12 h-12 rounded-xl bg-zest text-zest-ink font-display font-bold text-xl flex items-center justify-center flex-shrink-0">
+                {t.icon}
+              </div>
+              <div>
+                <h3 className="font-display text-[18px] mb-1.5">{t.title}</h3>
+                <p className="text-sm text-[#4A493F] leading-relaxed">{t.body}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
+      </section>
 
-        {/* Universities Section */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Popular Universities We Serve</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {universities.map((university, index) => (
-              <Card key={index} className="border-0 shadow-card hover:shadow-hover transition-all duration-300 cursor-pointer">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-lg mb-1">{university.name}</h4>
-                      <div className="flex items-center gap-1 text-muted-foreground mb-2">
-                        <MapPin className="w-4 h-4" />
-                        <span className="text-sm">{university.location}</span>
-                      </div>
-                      <Badge variant="secondary">{university.properties} properties nearby</Badge>
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground" />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      {/* Testimonials */}
+      <section className="max-w-[1180px] mx-auto px-5 md:px-8 pb-16">
+        <Reveal>
+          <div className="text-[13px] font-bold text-cobalt uppercase tracking-[1px] mb-2.5">The word on campus</div>
+          <h2 className="font-display font-bold text-[28px] md:text-[32px] mb-8">Students, actually happy.</h2>
+        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {testimonials.map((t) => (
+            <Reveal key={t.name} className="bg-white border border-ink/10 rounded-2xl p-6">
+              <p className="text-[15px] text-ink/85 leading-relaxed italic">"{t.text}"</p>
+              <div className="mt-5 pt-4 border-t border-ink/10">
+                <div className="font-bold text-sm">{t.name}</div>
+                <div className="text-xs text-[#6B6A63] mt-0.5">{t.course} • {t.school}</div>
+              </div>
+            </Reveal>
+          ))}
         </div>
+      </section>
 
-        {/* Student Tips Section */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Student Housing Tips</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {tips.map((tip, index) => (
-              <Card key={index} className="border-0 shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      {tip.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">{tip.title}</h4>
-                      <p className="text-muted-foreground text-sm">{tip.description}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+      <PropertyGrid heading="Popular with students" limit={3} />
 
-        {/* Testimonials Section */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">What Students Say</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-0 shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-accent text-accent" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4 italic">"{testimonial.comment}"</p>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.course} • {testimonial.university}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-gradient-accent rounded-2xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Ready to Find Your Perfect Student Accommodation?</h3>
-          <p className="opacity-90 mb-6 max-w-2xl mx-auto">
-            Join thousands of Nigerian students who have found their ideal housing through our AI-powered platform. 
-            Start your search today and focus on what matters most - your studies.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-              <Brain className="w-5 h-5 mr-2" />
-              Get AI Recommendations
-            </Button>
-            <Button size="lg" variant="ghost" className="text-white border-white/30 hover:bg-white/20">
-              <MessageCircle className="w-5 h-5 mr-2" />
-              Chat with Support
-            </Button>
-          </div>
-        </div>
-      </div>
-
+      <Footer />
       <BottomNavigation />
     </div>
   );

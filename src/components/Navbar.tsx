@@ -1,99 +1,91 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, User, Heart, MessageCircle, X } from 'lucide-react';
+
+const links = [
+  { label: 'Find digs', to: '/properties' },
+  { label: 'For students', to: '/for-students' },
+  { label: 'List a place', to: '/list' },
+  { label: 'How it works', to: '/how' },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-white">
-              Odekole<span className="text-accent">AI</span>
-            </h1>
-          </div>
+    <nav className="sticky top-0 z-50 bg-ink text-paper">
+      <div className="max-w-[1180px] mx-auto flex items-center justify-between px-5 md:px-8 py-4">
+        <Link to="/" className="font-display font-bold text-xl tracking-tight">
+          ode<span className="text-zest">kole</span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="/properties" className="text-white/90 hover:text-white transition-colors font-medium">
-              Explore
-            </a>
-            <a href="/for-students" className="text-white/90 hover:text-white transition-colors font-medium">
-              For Students
-            </a>
-            <a href="#" className="text-white/90 hover:text-white transition-colors font-medium">
-              List Property
-            </a>
-          </div>
-
-          {/* User Actions */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
-              <Heart className="w-4 h-4 mr-2" />
-              Saved
-            </Button>
-            <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Messages
-            </Button>
-            <Button size="sm" className="bg-white text-primary hover:bg-white/90">
-              <User className="w-4 h-4 mr-2" />
-              Sign In
-            </Button>
-          </div>
-
-          {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="sm" className="md:hidden text-white hover:bg-white/20">
-                <Menu className="w-5 h-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-              <div className="flex flex-col space-y-6 mt-6">
-                {/* Mobile Logo */}
-                <div className="flex items-center justify-center pb-4 border-b">
-                  <h1 className="text-2xl font-bold text-foreground">
-                    Odekole<span className="text-accent">AI</span>
-                  </h1>
-                </div>
-                
-                {/* Mobile Navigation Links */}
-                <div className="flex flex-col space-y-4">
-                  <a href="/properties" className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 px-4 rounded-lg hover:bg-muted">
-                    Explore
-                  </a>
-                  <a href="/for-students" className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 px-4 rounded-lg hover:bg-muted">
-                    For Students
-                  </a>
-                  <a href="#" className="text-foreground/80 hover:text-foreground transition-colors font-medium py-2 px-4 rounded-lg hover:bg-muted">
-                    List Property
-                  </a>
-                </div>
-
-                {/* Mobile User Actions */}
-                <div className="flex flex-col space-y-3 pt-4 border-t">
-                  <Button variant="ghost" className="justify-start">
-                    <Heart className="w-4 h-4 mr-3" />
-                    Saved Properties
-                  </Button>
-                  <Button variant="ghost" className="justify-start">
-                    <MessageCircle className="w-4 h-4 mr-3" />
-                    Messages
-                  </Button>
-                  <Button className="w-full mt-4">
-                    <User className="w-4 h-4 mr-2" />
-                    Sign In
-                  </Button>
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+        <div className="hidden md:flex items-center gap-7 text-sm font-medium">
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) =>
+                `transition-opacity ${isActive ? 'opacity-100' : 'opacity-70 hover:opacity-100'}`
+              }
+            >
+              {l.label}
+            </NavLink>
+          ))}
         </div>
+
+        <div className="hidden md:block">
+          <Link
+            to="/signup"
+            className="bg-zest text-zest-ink px-5 py-2.5 rounded-full font-bold text-sm hover:brightness-95 transition"
+          >
+            Sign up free
+          </Link>
+        </div>
+
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <button
+              aria-label="Open menu"
+              className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-paper/20 text-paper"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          </SheetTrigger>
+          <SheetContent side="right" className="bg-ink text-paper border-l border-paper/10 w-[85%] sm:w-[360px]">
+            <div className="flex items-center justify-between mb-8">
+              <span className="font-display font-bold text-xl">
+                ode<span className="text-zest">kole</span>
+              </span>
+              <button
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="w-9 h-9 rounded-full border border-paper/20 flex items-center justify-center"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="flex flex-col gap-1">
+              {links.map((l) => (
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  className="py-3 px-3 rounded-lg text-lg font-display hover:bg-ink-2"
+                >
+                  {l.label}
+                </NavLink>
+              ))}
+            </div>
+            <Link
+              to="/signup"
+              onClick={() => setOpen(false)}
+              className="mt-6 inline-flex w-full items-center justify-center bg-zest text-zest-ink px-5 py-3 rounded-full font-bold"
+            >
+              Sign up free
+            </Link>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );

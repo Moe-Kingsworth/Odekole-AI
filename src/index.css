@@ -2,112 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-/* NaijaDigs AI Design System - Nigerian-inspired colors and modern aesthetics */
+/* Odekole Design System — corkboard editorial, Naija student energy */
 
 @layer base {
   :root {
-    /* Brand colors - Nigerian inspired */
-    --naija-green: 142 76% 36%;
-    --naija-green-light: 142 60% 45%;
-    --naija-green-dark: 142 85% 25%;
-    --naija-white: 0 0% 100%;
-    --earth-warm: 25 85% 55%;
-    --earth-light: 35 75% 65%;
-    
-    /* Core system colors */
-    --background: 0 0% 100%;
-    --foreground: 220 13% 18%;
+    /* Brand tokens (HSL) */
+    --ink: 248 17% 9%;            /* #14131C */
+    --ink-2: 250 20% 13%;         /* #1D1B29 */
+    --paper: 42 39% 93%;          /* #F5F1E8 */
+    --paper-2: 42 36% 89%;        /* #EDE7D8 */
+    --zest: 73 100% 62%;          /* #D4FF3D */
+    --zest-ink: 72 100% 14%;      /* #3A4600 */
+    --coral: 354 100% 68%;        /* #FF5A6E */
+    --coral-ink: 354 100% 18%;    /* #5C0010 */
+    --cobalt: 230 100% 65%;       /* #4D6BFF */
+    --cobalt-ink: 230 82% 22%;    /* #0A1A66 */
+    --line: 248 17% 9%;           /* used with alpha */
+    --line-light: 42 39% 93%;     /* used with alpha */
+
+    /* Semantic mapping (shadcn) */
+    --background: var(--paper);
+    --foreground: var(--ink);
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 18%;
+    --card-foreground: var(--ink);
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 18%;
+    --popover-foreground: var(--ink);
 
-    --primary: 142 76% 36%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 142 85% 25%;
+    --primary: var(--ink);
+    --primary-foreground: var(--paper);
+    --primary-hover: 250 20% 13%;
 
-    --secondary: 142 20% 96%;
-    --secondary-foreground: 142 85% 25%;
+    --secondary: var(--paper-2);
+    --secondary-foreground: var(--ink);
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 8% 46%;
+    --muted: var(--paper-2);
+    --muted-foreground: 45 4% 40%;
 
-    --accent: 25 85% 55%;
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 35 75% 65%;
+    --accent: var(--zest);
+    --accent-foreground: var(--zest-ink);
+    --accent-light: 73 100% 75%;
 
-    --destructive: 0 84% 60%;
+    --destructive: var(--coral);
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 142 76% 36%;
+    --border: 248 17% 9%;
+    --input: 248 17% 9%;
+    --ring: var(--zest);
 
-    --radius: 0.75rem;
-
-    /* Custom gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--naija-green)), hsl(var(--naija-green-light)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--secondary)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(var(--naija-green) / 0.1);
-    --shadow-card: 0 8px 30px -8px hsl(var(--foreground) / 0.08);
-    --shadow-hover: 0 12px 40px -10px hsl(var(--naija-green) / 0.2);
-    
-    /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
   }
 
   .dark {
-    --background: 220 13% 18%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 13% 18%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 13% 18%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 142 60% 45%;
-    --primary-foreground: 220 13% 18%;
-    --primary-hover: 142 85% 25%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 25 85% 55%;
-    --accent-foreground: 220 13% 18%;
-    --accent-light: 35 75% 65%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 142 60% 45%;
+    --background: var(--ink);
+    --foreground: var(--paper);
+    --card: var(--ink-2);
+    --card-foreground: var(--paper);
+    --popover: var(--ink-2);
+    --popover-foreground: var(--paper);
+    --primary: var(--zest);
+    --primary-foreground: var(--zest-ink);
+    --secondary: var(--ink-2);
+    --secondary-foreground: var(--paper);
+    --muted: var(--ink-2);
+    --muted-foreground: 42 20% 70%;
+    --accent: var(--zest);
+    --accent-foreground: var(--zest-ink);
+    --destructive: var(--coral);
+    --destructive-foreground: 0 0% 100%;
+    --border: 42 39% 93%;
+    --input: 42 39% 93%;
+    --ring: var(--zest);
   }
 }
 
@@ -116,10 +90,25 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
+  html {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   }
-  
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Unbounded', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  .font-mono, .mono {
+    font-family: 'Space Mono', ui-monospace, monospace;
+  }
+
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -129,11 +118,50 @@
 }
 
 @layer components {
-  .hover-scale {
-    @apply transition-transform duration-200 hover:scale-105;
+  /* Marquee */
+  .marquee-track {
+    display: flex;
+    white-space: nowrap;
+    animation: odk-scroll 22s linear infinite;
+    width: max-content;
   }
-  
-  .smooth-transition {
-    transition: var(--transition-smooth);
+  @keyframes odk-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
+
+  /* Corkboard pin */
+  .odk-pin {
+    background: hsl(var(--paper));
+    border-radius: 14px;
+    padding: 10px 10px 44px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+    transition: transform .35s cubic-bezier(.2,.9,.3,1.2);
+    cursor: pointer;
+    position: absolute;
+  }
+  .odk-pin:hover { transform: rotate(0deg) scale(1.05); z-index: 5; }
+  .odk-pin img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; display: block; }
+
+  /* Match sticker pulse */
+  @keyframes odk-pulse {
+    0%, 100% { transform: rotate(-3deg) scale(1); }
+    50% { transform: rotate(-3deg) scale(1.06); }
+  }
+  .match-sticker { animation: odk-pulse 2.4s ease-in-out infinite; }
+
+  /* Reveal scroll animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hide horizontal scrollbar for chips */
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
 }
