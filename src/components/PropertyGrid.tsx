@@ -10,7 +10,7 @@ const fallback: PropertyCardData[] = [
     title: 'Sunny self-con near UI gate',
     location: 'Bodija, Ibadan',
     subtitle: '8 min to campus',
-    image: 'https://picsum.photos/seed/odk10/400/300',
+    image: '/images/listing1.jpg',
     price: 35000,
     matchPercent: 94,
     amenities: ['WiFi', 'Prepaid meter', 'Roommate ok'],
@@ -20,7 +20,7 @@ const fallback: PropertyCardData[] = [
     title: 'Shared flat, girls only',
     location: 'Yaba, Lagos',
     subtitle: '12 min to UNILAG',
-    image: 'https://picsum.photos/seed/odk11/400/300',
+    image: '/images/listing2.jpg',
     price: 55000,
     matchPercent: 89,
     amenities: ['Security', 'Water 24/7'],
@@ -30,7 +30,7 @@ const fallback: PropertyCardData[] = [
     title: 'Studio off Nsukka road',
     location: 'Nsukka',
     subtitle: 'walk to UNN',
-    image: 'https://picsum.photos/seed/odk12/400/300',
+    image: '/images/listing3.jpg',
     price: 22000,
     matchPercent: 97,
     amenities: ['Furnished', 'Quiet street'],
@@ -60,8 +60,7 @@ const PropertyGrid = ({ heading = 'Fresh matches for you', limit }: Props) => {
           title: p.name,
           location: p.location,
           image:
-            (p.images && p.images[0]) ||
-            `https://picsum.photos/seed/odk-db-${i}/400/300`,
+            (p.images && p.images[0]) || `/images/listing${(i % 3) + 1}.jpg`,
           price: p.payment_plan_price ?? p.outright_price ?? 0,
           amenities: (p.features ?? []).slice(0, 3),
         }));

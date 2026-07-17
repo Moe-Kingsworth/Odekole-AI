@@ -9,25 +9,25 @@ interface Pin {
 
 const pins: Pin[] = [
   {
-    img: 'https://picsum.photos/seed/odk1/300/380',
+    img: '/images/hero1.jpg',
     price: '₦38k/mo',
     match: '92% match',
     cls: 'w-[190px] h-[230px] top-0 left-5 -rotate-[7deg] z-[2]',
   },
   {
-    img: 'https://picsum.photos/seed/odk2/300/380',
+    img: '/images/hero2.jpg',
     price: '₦52k/mo',
     match: '88% match',
     cls: 'w-[170px] h-[210px] top-10 right-10 rotate-[5deg] z-[1]',
   },
   {
-    img: 'https://picsum.photos/seed/odk3/300/380',
+    img: '/images/hero3.jpg',
     price: '₦29k/mo',
     match: '95% match',
     cls: 'w-[180px] h-[220px] bottom-0 left-[110px] rotate-[4deg] z-[3]',
   },
   {
-    img: 'https://picsum.photos/seed/odk4/300/380',
+    img: '/images/hero4.jpg',
     price: '₦60k/mo',
     match: '81% match',
     cls: 'w-[150px] h-[180px] bottom-5 right-0 -rotate-[6deg] z-[1]',
