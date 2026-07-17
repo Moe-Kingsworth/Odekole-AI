@@ -22,6 +22,9 @@ const Footer = () => {
               <Link to="/list" className="block text-sm mb-2 text-ink/80 hover:text-ink">
                 List a place
               </Link>
+              <Link to="/how" className="block text-sm mb-2 text-ink/80 hover:text-ink">
+                How it works
+              </Link>
             </div>
             <div>
               <h4 className="text-xs uppercase tracking-wider text-[#8a897d] mb-3">Company</h4>
