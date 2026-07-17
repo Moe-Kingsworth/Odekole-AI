@@ -12,12 +12,13 @@ export interface PropertyCardData {
 }
 
 interface Props {
-  property: PropertyCardData;
+  property?: PropertyCardData;
 }
 
 const PropertyCard = ({ property }: Props) => {
+  if (!property) return null;
   const match = property.matchPercent ?? Math.floor(80 + Math.random() * 18);
-  const price = new Intl.NumberFormat('en-NG').format(property.price);
+  const price = new Intl.NumberFormat('en-NG').format(property.price ?? 0);
 
   return (
     <Reveal className="bg-white rounded-2xl overflow-hidden border border-ink/10 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(20,19,28,0.12)] transition-all duration-200">
